@@ -1,9 +1,33 @@
+:root {
+	--white: #ffff;
+	--gray: #9e9aa8;
+	--mobile-nav-bgc: #3a3053;
+	--mobile-nav-horizontal-line: #524b69;
+	--desktop-nav-items: #9e9aa8;
+	--desktop-nav-items-hover: #504d58;
+	--buttons-bgc: #2bd1d1;
+	--buttons-bgc-hover: #9be3e2;
+}
+
 *,
 ::after,
 ::before {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+}
+html{
+	font-size: 62.5%;
+}
+ul,
+li {
+	list-style: none;
+}
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition: background-color .3s;
 }
 body {
 	background-color: #333;

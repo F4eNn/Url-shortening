@@ -1,0 +1,23 @@
+.header-bgc {
+	background-color: #fff;
+}
+.get-started-container {
+	display: flex;
+	.cropped-img {
+		position: relative;
+		height: 730px;
+		width: 50%;
+		img {
+			position: absolute;
+			max-width: 100%;
+			//   right: -100px;
+			height: auto;
+			//   z-index: -1;
+		}
+	}
+}
+@media (max-width: 992px) {
+	.get-started-container {
+		flex-direction: column;
+	}
+}
