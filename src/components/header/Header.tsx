@@ -11,17 +11,17 @@ export const Header = () => {
 				<div className={classes['get-started-container']}>
 					<div className={classes.description}>
 						<h1>More than just shorter links</h1>
-						<p>Build your brand's recognition and get detailes insights your links are performing</p>
-						<button>Get started</button>
+						<p>Build your brand's recognition and get detailed insights on how your links are performing</p>
+						<button>Get Started</button>
 					</div>
-				<div className={classes['cropped-img']}>
+					<div className={classes['img-box']}>
 					<Image
 						src='/images/illustration-working.svg'
 						alt='working illustration'
 						width={733}
 						height={482}
 					/>
-				</div>
+					</div>
 				</div>
 			</Wrapper>
 		</header>

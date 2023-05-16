@@ -1,5 +1,10 @@
+import { Header } from "@/components/header/Header"
 
 const Page = () => {
-    return <h1>first project</h1>
+	return (
+		<>
+			<Header />
+		</>
+	)
 }
 export default Page

@@ -1,10 +1,11 @@
 .hero-bg {
-	padding: 3.8rem 2.4rem;
+	padding: 3.8rem 2.4rem 3rem;
 	.container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		.burger-btn {
+			position: relative;
 			.bar1,
 			.bar2,
 			.bar3 {
@@ -31,7 +32,7 @@
 			align-self: flex-end;
 		}
 		.mobile-nav {
-			position: fixed;
+			position: absolute;
 			left: 0;
 			right: 0;
 			margin: 2.5rem auto;
@@ -75,7 +76,7 @@
 			display: none;
 		}
 	}
-	@media (min-width: 700px) {
+	@media (min-width: 768px) {
 		.container {
 			.mobile-nav {
 				display: none;
@@ -98,9 +99,7 @@
 					gap: 3rem;
 					button {
 						color: var(--desktop-nav-items);
-						font-weight: bold;
 						font-size: inherit;
-						transition: color 0.3s;
 					}
 					button:hover {
 						color: var(--desktop-nav-items-hover);
@@ -112,11 +111,9 @@
 					button {
 						font-size: 1.5rem;
 						color: var(--desktop-nav-items);
-						font-weight: bold;
 					}
 					.signup {
 						padding: 1rem 2.5rem;
-						border-radius: 25px;
 						background-color: var(--buttons-bgc);
 						color: var(--white);
 					}

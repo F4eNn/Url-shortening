@@ -11,11 +11,7 @@ export const Nav = () => {
 		setIsActive(!isActive)
 	}
 	useEffect(() => {
-		if (isActive) {
-			document.body.style.overflow = 'hidden'
-		} else {
-			document.body.style.overflow = 'unset'
-		}
+		
 
 		const handler = (e: UIEvent) => {
 			const target = e.target as HTMLDivElement
@@ -64,7 +60,7 @@ export const Nav = () => {
 							<div className={classes['horizontal-line']}></div>
 							<div className={classes['button-container']}>
 								<button className={classes.login}>Login</button>
-								<button className={classes['login--signup']}>Sign Up</button>
+								<button className={classes.signup}>Sign Up</button>
 							</div>
 						</div>
 					</div>
