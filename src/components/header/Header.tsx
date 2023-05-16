@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Wrapper } from '../wrapper/Wrapper'
+import { Wrapper } from '../UI/wrapper/Wrapper'
 import { Nav } from './nav/Nav'
 import Image from 'next/image'
 import classes from './Header.module.scss'
@@ -15,12 +15,12 @@ export const Header = () => {
 						<button>Get Started</button>
 					</div>
 					<div className={classes['img-box']}>
-					<Image
-						src='/images/illustration-working.svg'
-						alt='working illustration'
-						width={733}
-						height={482}
-					/>
+						<Image
+							src='/images/illustration-working.svg'
+							alt='working illustration'
+							width={733}
+							height={482}
+						/>
 					</div>
 				</div>
 			</Wrapper>

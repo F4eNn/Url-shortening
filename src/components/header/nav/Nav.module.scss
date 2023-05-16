@@ -1,5 +1,5 @@
 .hero-bg {
-	padding: 3.8rem 2.4rem 3rem;
+	padding: 4rem .5rem 3rem;
 	.container {
 		display: flex;
 		align-items: center;
@@ -42,7 +42,7 @@
 			border-radius: 10px;
 			font-weight: bold;
 			color: var(--white);
-			background-color: var(--mobile-nav-bgc);
+			background-color: var(--bgc-primary);
 			z-index: 1000;
 
 			button {

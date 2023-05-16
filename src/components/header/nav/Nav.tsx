@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { Wrapper } from '../../wrapper/Wrapper'
+import { Wrapper } from '../../UI/wrapper/Wrapper'
 import classes from './Nav.module.scss'
 import Image from 'next/image'
 export const Nav = () => {
@@ -11,8 +11,6 @@ export const Nav = () => {
 		setIsActive(!isActive)
 	}
 	useEffect(() => {
-		
-
 		const handler = (e: UIEvent) => {
 			const target = e.target as HTMLDivElement
 			if (!menuRef.current?.contains(target)) setIsActive(false)

@@ -1,0 +1,11 @@
+.button {
+	width: 100%;
+	padding: 1.1rem;
+	border-radius: 5px;
+	font-size: 1.6rem;
+	color: var(--white);
+	background-color: var(--buttons-bgc);
+}
+.button:hover {
+	background-color: var(--buttons-bgc-hover);
+}

@@ -1,13 +1,16 @@
 :root {
+	--body-bgc: #eff1f7;
 	--white: #ffff;
 	--gray: #9e9aa8;
-	--mobile-nav-bgc: #3a3053;
+	--bgc-primary: #3a3053;
 	--mobile-nav-horizontal-line: #524b69;
 	--desktop-nav-items: #9e9aa8;
 	--desktop-nav-items-hover: #504d58;
 	--buttons-bgc: #2bd1d1;
 	--buttons-bgc-hover: #9be3e2;
 	--img-shadow: #bfbfbf;
+	--input-focus-outline:#9be3e2;
+	--invalid-color: #f36262;
 }
 
 *,
@@ -28,13 +31,14 @@ button {
 	background-color: transparent;
 	font-weight: bold;
 	border-radius: 30px;
-
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
+
+
 body {
-	background-color: #333;
+	background-color: var(--body-bgc);
 	display: grid;
 	min-height: 100svh;
 }

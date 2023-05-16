@@ -1,0 +1,43 @@
+.form {
+	margin-bottom: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	input {
+		width: 100%;
+		padding: 1rem;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+	}
+	input:focus {
+		outline: 3px solid var(--input-focus-outline);
+	}
+	input::placeholder {
+		font-size: 1.6rem;
+	}
+	.invalid {
+		outline: 2px solid var(--invalid-color);
+	}
+	.error {
+		font-style: italic;
+		text-align: left;
+		color: var(--invalid-color);
+		margin: 1rem 0 0.5rem 0;
+	}
+}
+@media (min-width: 768px) {
+	.form {
+		position: relative;
+		width: 100%;
+		margin-bottom: 0;
+		input {
+			padding: 1.5rem;
+		}
+		.error {
+			position: absolute;
+			left: 0;
+			top: 45px;
+			font-size: 1.4rem;
+		}
+	}
+}
