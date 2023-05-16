@@ -1,11 +1,11 @@
 import { Header } from '@/components/header/Header'
-import { Link } from '@/components/link-generator/Link'
+import { LinkGenerator } from '@/components/link-generator/LinkGenerator'
 const Page = () => {
 	return (
 		<>
 			<Header />
 			<main>
-				<Link />
+				<LinkGenerator />
 			</main>
 		</>
 	)

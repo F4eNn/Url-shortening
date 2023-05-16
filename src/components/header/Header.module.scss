@@ -14,13 +14,13 @@
 		padding-block-end: 6rem;
 
 		h1 {
-			font-size: clamp(4rem, 6.5vw, 7.5rem);
+			font-size: clamp(4rem, 5.5vw, 7.5rem);
 			line-height: clamp(47px, 7.5vw, 85px);
 		}
 		p {
 			margin-top: 1.5rem;
 			line-height: clamp(30px, 7.5vw, 40px);
-			font-size: clamp(1.85rem, 2.5vw, 2.2rem);
+			font-size: clamp(1.6rem, 2vw, 2.2rem);
 			color: var(--gray);
 		}
 		button {
