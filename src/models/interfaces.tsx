@@ -4,6 +4,10 @@ export interface ButtonProps {
 	text: string
 	onFormSubmit?: (e: SyntheticEvent) => void
 }
+export interface NewLinks {
+	short: string
+	original: string
+}
 export interface InputValue {
-	getInputValue: (inputValue: string) => void
+	getInputValueHelper: (inputValue: string) => void
 }
