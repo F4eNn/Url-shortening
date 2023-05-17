@@ -1,9 +1,9 @@
 'use client'
-import { useState, useRef} from 'react'
+import { useState, useRef, SyntheticEvent } from 'react'
 import classes from './LinkForm.module.scss'
-import { FormElem } from '@/models/types'
-
-export const LinkForm = () => {
+import { LinkButton } from '../UI/link-button/LinkButton'
+import { InputValue } from '@/models/interfaces'
+export const LinkForm = ({ getInputValue }: InputValue) => {
 	const expression =
 		/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
 	const regex = new RegExp(expression)
@@ -17,10 +17,9 @@ export const LinkForm = () => {
 	const handleFocus = () => {
 		input.current?.blur()
 	}
-	const checkInputValidation = (e: FormElem) => {
+	const checkInputValidation = (e: SyntheticEvent) => {
 		e.preventDefault()
 		const inputValue = input.current?.value
-
 		if (inputValue?.trim() === '') {
 			setIsInvalid(false)
 			setIsEmpty(true)
@@ -33,6 +32,7 @@ export const LinkForm = () => {
 			setIsInvalid(false)
 			setIsEmpty(false)
 			clearInput()
+			getInputValue(inputValue)
 		}
 	}
 	const addInvalidClass = isEmpty || isInvalid ? classes.invalid : ''
@@ -42,14 +42,22 @@ export const LinkForm = () => {
 		<form
 			onSubmit={checkInputValidation}
 			className={classes.form}>
-			<input
-				ref={input}
-				className={addInvalidClass}
-				type='text'
-				placeholder='Shorten a link here...'
-			/>
-			{addEmptyInputMsg}
-			{addInvalidLinktMsg}
+			<div className={classes['form-container']}>
+				<input
+					ref={input}
+					className={addInvalidClass}
+					type='text'
+					placeholder='Shorten a link here...'
+				/>
+				{addEmptyInputMsg}
+				{addInvalidLinktMsg}
+				<div className={classes['button-box']}>
+					<LinkButton
+						onFormSubmit={checkInputValidation}
+						text='Shorten It!'
+					/>
+				</div>
+			</div>
 		</form>
 	)
 }

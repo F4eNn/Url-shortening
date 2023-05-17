@@ -5,31 +5,9 @@
 	flex-direction: column;
 	width: 90%;
 	margin-inline: auto;
-
-	.form-container {
-		width: 100%;
-		text-align: center;
-		padding: 2.5rem;
-		border-radius: 10px;
-		background-color: var(--bgc-primary);
-		background-image: url('../../../public/images/bg-shorten-mobile.svg');
-		background-repeat: no-repeat;
-		background-position: right 0 top 0;
-	}
 }
 @media (min-width: 768px) {
 	.generator {
-		.form-container {
-			padding: 5rem;
-			display: flex;
-			gap: 30px;
-			align-items: center;
-			background-image: url('../../../public/images/bg-shorten-desktop.svg');
-			.button-box {
-				display: flex;
-				align-self: stretch;
-				width: 25%;
-			}
-		}
+		width: 100%;
 	}
 }

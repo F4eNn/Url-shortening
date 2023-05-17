@@ -7,8 +7,7 @@ export const LinksContainer = () => {
 	return (
 		<ul className={classes.container}>
 			<Link />
-			<Link />
-			<Link />
+			
 			{eachLink}
 		</ul>
 	)
