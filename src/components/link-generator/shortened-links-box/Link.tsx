@@ -1,6 +1,6 @@
 import classes from './Link.module.scss'
 import { LinkButton } from '@/components/UI/link-button/LinkButton'
-export const Link = ({original, shortened}: {original: string; shortened: string}) => {
+export const Link = ({original, shortened, id}: {original: string; shortened: string; id: string}) => {
 
 
 	return (

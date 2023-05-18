@@ -1,42 +1,31 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import classes from './LinkGenerator.module.scss'
 import { Wrapper } from '../UI/wrapper/Wrapper'
 import { LinkForm } from './LinkForm'
 import { LinksContainer } from './shortened-links-box/LinksContainer'
-
+import { Link } from './shortened-links-box/Link'
 const URL = 'https://api.shrtco.de/v2/shorten?url='
 
 interface links {
+	id: string
 	short: string
 	original: string
 }
 
 export const LinkGenerator = () => {
 	const [inputValue, setInputValue] = useState('')
-
-	// const [isData, setData] = useState<links[]>([])
 	const onFormInputValueHelper = (inputValue: string) => {
 		setInputValue(inputValue)
 	}
-
-	// useEffect(() => {
-	// 	const data = window.localStorage.getItem('LIST_OF_LINKS')
-	// 	if (data !== null) {
-	// 		console.log('pobrano najpierw dane')
-	// 		const transformedData = JSON.parse(data)
-	// 		setData(transformedData)
-	// 		console.log(transformedData)
-	// 	}
-	// }, [])
-
+	const eachLink = useRef(null)
 	useEffect(() => {
 		if (inputValue === '') return
 		const converLink = async () => {
 			try {
 				const response = await fetch(URL + inputValue)
 				if (!response.ok) {
-					throw Error('Respone problems')
+					throw Error('Response problems')
 				}
 				const data = await response.json()
 				const shortLink = data.result.full_short_link
@@ -47,31 +36,47 @@ export const LinkGenerator = () => {
 					short: shortLink,
 					original: originalLink,
 				}
-
-				let newData = ['']
-				if (newData.length > 0) {
-					newData.shift()
+				let newArr = []
+				newArr.push(transformedLinks)
+				const oldData = localStorage.getItem('MY_ITEMS')
+				if (!oldData) {
+					localStorage.setItem('MY_ITEMS', JSON.stringify(newArr))
 				}
-				let oldData = localStorage.getItem('LIST_OF_LINKS')
 				if (oldData) {
-					newData = JSON.parse(oldData)
+					const newData = JSON.parse(oldData)
+					localStorage.setItem('MY_ITEMS', JSON.stringify([...newData, transformedLinks]))
 				}
-				window.localStorage.setItem('LIST_OF_LINKS', JSON.stringify([...newData, transformedLinks]))
+
+				const latestArray = localStorage.getItem('MY_ITEMS')
+				if (latestArray) {
+					const parseLatestArray = JSON.parse(latestArray)
+					const listItem = getData(parseLatestArray)
+					eachLink.current = listItem
+				}
 			} catch (error) {
 				// alert(error)
 			}
 		}
 		converLink()
-		return () => {
-			setInputValue('')
-		}
 	}, [inputValue])
+
+	const getData = (params: any) => {
+		const listItem = params.map((item: any, index: number) => (
+			<Link
+				key={index}
+				original={item.original}
+				shortened={item.short}
+				id={item.id}
+			/>
+		))
+		return listItem
+	}
 
 	return (
 		<Wrapper>
 			<div className={classes.generator}>
 				<LinkForm getInputValueHelper={onFormInputValueHelper} />
-				<LinksContainer />
+				<LinksContainer newList={eachLink}/>
 			</div>
 		</Wrapper>
 	)
