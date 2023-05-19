@@ -1,30 +1,27 @@
 import { Link } from './Link'
 import classes from './LinksContainer.module.scss'
 import { useState, useEffect } from 'react'
-let eachLink: any
+import { LinkItems } from '@/models/interfaces'
 
-interface LinksObj {
-	linkArr: {
-		id: string
-		short: string
-		original: string
-	}
-}
-
-export const LinksContainer = ({ newList }: any) => {
-	const [data, setData] = useState(null)
+export const LinksContainer = ({ linksArr }: { linksArr: { id: string; shortLink: string; original: string }[] }) => {
+	const [card, setCard] = useState()
 
 	useEffect(() => {
-		const newItem = localStorage.getItem('MY_ITEMS')
-		if (newItem) {
-			const parseItem = JSON.parse(newItem)
-			setData(parseItem)
+		const data = localStorage.getItem('MY_ITEMS')
+		if (data) {
+			const parseData = JSON.parse(data)
+			const eachCard = parseData.map((item: LinkItems, index: number) => (
+				<Link
+					key={index}
+					original={item.original}
+					id={item.id}
+					shortened={item.shortLink}
+				/>
+			))
+			setCard(eachCard)
 		}
-		return () => {
-			console.log('Clean UP')
-			setData(null)
-		}
-	}, [])
-	console.log(data)
-	return <ul className={classes.container}>{newList.current}</ul>
+		return () => {}
+	}, [linksArr])
+
+	return <ul className={classes.container}>{card}</ul>
 }

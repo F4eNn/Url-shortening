@@ -4,8 +4,9 @@ export interface ButtonProps {
 	text: string
 	onFormSubmit?: (e: SyntheticEvent) => void
 }
-export interface NewLinks {
-	short: string
+export interface LinkItems {
+	id: string
+	shortLink:string
 	original: string
 }
 export interface InputValue {
