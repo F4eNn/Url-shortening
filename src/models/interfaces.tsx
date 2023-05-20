@@ -2,6 +2,7 @@ import { CSSProperties, SyntheticEvent } from 'react'
 
 export interface ButtonProps {
 	text: string
+	onCopy?: (e: React.MouseEvent) => void 
 }
 export interface LinkItems {
 	id: string

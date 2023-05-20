@@ -8,22 +8,23 @@
 	.shortened-link {
 		margin: 1rem 0 0.5rem 1rem;
 	}
-
-	.old-link-box {
-		margin-inline: auto;
-		width: 90%;
-		margin-bottom: 0.5rem;
-		.old {
-			text-overflow: ellipsis;
-			overflow: hidden;
-			white-space: nowrap;
-		}
-	}
+	.old-link-box,
 	.new-link-box {
 		margin-inline: auto;
 		width: 90%;
 		margin-bottom: 0.5rem;
+	}
+	.old-link-box {
+		.old {
+			width:calc(50%);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			// text-overflow: hidden;
 
+		}
+	}
+	.new-link-box {
 		.shortened {
 			margin-top: 1rem;
 			color: var(--new-link);
@@ -38,19 +39,33 @@
 		margin: 1.5rem auto 1rem;
 		width: 90%;
 	}
-	.remove-button-box {
-		width: 90%;
-		margin: 0 auto;
+	.remove-button-box,
+	.copy-button-box {
+		width: 100%;
+		margin: auto;
 		button {
 			width: 100%;
 			padding: 1.1rem;
 			border-radius: 5px;
 			font-size: inherit;
+		}
+	}
+	.remove-button-box {
+		button {
 			color: var(--white);
 			background-color: var(--remove-button);
 		}
 		button:hover {
 			background-color: var(--remove-button-hover);
+		}
+	}
+	.copy-button-box {
+		button {
+			color: var(--white);
+			background-color: var(--copy-btn-bgc);
+		}
+		button:hover {
+			background-color: var(--buttons-bgc-hover);
 		}
 	}
 }
@@ -60,14 +75,15 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: 10%;
 		.button-box {
 			margin: 0;
 		}
+
 		.old-link-box {
-			width: 60%;
-			.old {
-				width: 80%;
-			}
+			display: flex;
+			width: 50%;
+			
 		}
 		.separate-line {
 			display: none;
@@ -77,9 +93,17 @@
 			width: 40%;
 			display: flex;
 			align-items: center;
-			.shortened {
-				text-align: right;
-				margin-top: 0;
+			.new-link-box {
+				width: 50%;
+				.shortened {
+					margin-top: 0;
+				}
+			}
+			.remove-button-box {
+				width: 25%;
+			}
+			.copy-button-box {
+				width: 25%;
 			}
 		}
 	}

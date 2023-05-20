@@ -43,8 +43,10 @@ export const LinkGenerator = () => {
 			console.error(error)
 		}
 	}
-	const copyLink = () => {
-		
+	const copyLink = (e: React.MouseEvent) => {
+		const target = e.target as HTMLElement
+		const copyLink = target.closest('div')?.previousSibling?.textContent
+		if (copyLink) return navigator.clipboard.writeText(copyLink)
 	}
 
 	const removeCard = (e?: React.MouseEvent) => {
@@ -56,6 +58,7 @@ export const LinkGenerator = () => {
 	}
 	const card = newData.map((item: any, index: number) => (
 		<Link
+			onCopy={copyLink}
 			onRemove={removeCard}
 			key={index}
 			id={item.id}
