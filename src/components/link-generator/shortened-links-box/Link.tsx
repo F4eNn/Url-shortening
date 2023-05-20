@@ -1,6 +1,6 @@
 import classes from './Link.module.scss'
 import { LinkButton } from '@/components/UI/link-button/LinkButton'
-export const Link = ({original, shortened, id, onClick}: {original: string; shortened: string; id: string, onClick: () => void }) => {
+export const Link = ({original, shorthened, id, onRemove}: {original: string; shorthened: string; id: string, onRemove: () => void}) => {
 
 
 	return (
@@ -11,13 +11,13 @@ export const Link = ({original, shortened, id, onClick}: {original: string; shor
 			<div className={classes['separate-line']}></div>
 			<div className={classes['desktop-flex']}>
 				<div className={classes['new-link-box']}>
-					<p className={classes.shortened}>{shortened}</p>
+					<p className={classes.shortened}>{shorthened}</p>
 				</div>
 				<div className={classes['button-box']}>
 					<LinkButton text='Copy' />
 				</div>
 				<div className={classes['remove-button-box']}>
-					<button onClick={onClick}>Remove</button>
+					<button onClick={onRemove}>Remove</button>
 				</div>
 			</div>
 		</li>

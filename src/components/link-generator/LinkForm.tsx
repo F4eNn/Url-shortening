@@ -3,7 +3,7 @@ import { useState, useRef, SyntheticEvent } from 'react'
 import classes from './LinkForm.module.scss'
 import { LinkButton } from '../UI/link-button/LinkButton'
 import { InputValue } from '@/models/interfaces'
-export const LinkForm = ({ getInputValueHelper }: InputValue) => {
+export const LinkForm = ({  newItem }: {  newItem: (inputValue:string) => void }) => {
 	const expression =
 		/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
 	const regex = new RegExp(expression)
@@ -32,7 +32,7 @@ export const LinkForm = ({ getInputValueHelper }: InputValue) => {
 			setIsInvalid(false)
 			setIsEmpty(false)
 			clearInput()
-			getInputValueHelper(inputValue)
+			newItem(inputValue)
 		}
 	}
 	const addInvalidClass = isEmpty || isInvalid ? classes.invalid : ''
@@ -52,10 +52,7 @@ export const LinkForm = ({ getInputValueHelper }: InputValue) => {
 				{addEmptyInputMsg}
 				{addInvalidLinktMsg}
 				<div className={classes['button-box']}>
-					<LinkButton
-						onFormSubmit={checkInputValidation}
-						text='Shorten It!'
-					/>
+					<LinkButton text='Shorten It!' />
 				</div>
 			</div>
 		</form>
