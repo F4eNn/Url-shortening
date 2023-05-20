@@ -7,7 +7,6 @@ import { LinksContainer } from './shortened-links-box/LinksContainer'
 const URL = 'https://api.shrtco.de/v2/shorten?url='
 import { LinkItems } from '@/models/interfaces'
 
-
 export const LinkGenerator = () => {
 	const getDataFromLocalStorage = () => {
 		const data = localStorage.getItem('MY_ITEMS')
@@ -23,7 +22,7 @@ export const LinkGenerator = () => {
 	const onFormInputValueHelper = (inputValue: string) => {
 		setInputValue(inputValue)
 	}
-	
+
 	useEffect(() => {
 		if (inputValue === '') return
 		const getNewLink = async () => {
@@ -46,24 +45,20 @@ export const LinkGenerator = () => {
 			} catch (error) {
 				console.error(error)
 			}
-			
 		}
 		getNewLink()
 		return () => {
 			
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [inputValue ])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [inputValue])
 	// console.log(newData)
-
-
-
 
 	return (
 		<Wrapper>
 			<div className={classes.generator}>
 				<LinkForm getInputValueHelper={onFormInputValueHelper} />
-				<LinksContainer linksArr={newData}/>
+				<LinksContainer linksArr={newData} />
 			</div>
 		</Wrapper>
 	)

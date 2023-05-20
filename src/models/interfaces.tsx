@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react'
+import { CSSProperties, SyntheticEvent } from 'react'
 
 export interface ButtonProps {
 	text: string

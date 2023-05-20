@@ -38,13 +38,31 @@
 		margin: 1.5rem auto 1rem;
 		width: 90%;
 	}
+	.remove-button-box {
+		width: 90%;
+		margin: 0 auto;
+		button {
+			width: 100%;
+			padding: 1.1rem;
+			border-radius: 5px;
+			font-size: inherit;
+			color: var(--white);
+			background-color: var(--remove-button);
+		}
+		button:hover {
+			background-color: var(--remove-button-hover);
+		}
+	}
 }
 @media (min-width: 768px) {
 	.container {
-		padding: 1rem 2rem 1rem 2rem;
+		padding: 2rem 2rem 2rem 2rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		.button-box {
+			margin: 0;
+		}
 		.old-link-box {
 			width: 60%;
 			.old {
@@ -55,7 +73,7 @@
 			display: none;
 		}
 		.desktop-flex {
-			gap: 10%;
+			gap: 5%;
 			width: 40%;
 			display: flex;
 			align-items: center;

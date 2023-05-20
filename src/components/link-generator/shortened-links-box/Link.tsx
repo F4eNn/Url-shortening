@@ -1,10 +1,10 @@
 import classes from './Link.module.scss'
 import { LinkButton } from '@/components/UI/link-button/LinkButton'
-export const Link = ({original, shortened, id}: {original: string; shortened: string; id: string}) => {
+export const Link = ({original, shortened, id, onClick}: {original: string; shortened: string; id: string, onClick: () => void }) => {
 
 
 	return (
-		<li className={classes.container}>
+		<li id={id} className={classes.container}>
 			<div className={classes['old-link-box']}>
 				<p className={classes.old}>{original}</p>
 			</div>
@@ -15,6 +15,9 @@ export const Link = ({original, shortened, id}: {original: string; shortened: st
 				</div>
 				<div className={classes['button-box']}>
 					<LinkButton text='Copy' />
+				</div>
+				<div className={classes['remove-button-box']}>
+					<button onClick={onClick}>Remove</button>
 				</div>
 			</div>
 		</li>

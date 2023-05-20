@@ -1,7 +1,7 @@
 import classes from './LinkButton.module.scss'
 import { ButtonProps } from '@/models/interfaces'
 
-export const LinkButton = ({ text, onFormSubmit}: ButtonProps) => {
+export const LinkButton = ({ text, onFormSubmit, }: ButtonProps) => {
 	return (
 		<button
 		onClick={onFormSubmit}
