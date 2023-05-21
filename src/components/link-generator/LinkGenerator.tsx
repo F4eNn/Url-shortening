@@ -78,7 +78,6 @@ export const LinkGenerator = () => {
 			shorthened={item.shortLink}
 		/>
 	))
-		console.log(card)
 	return (
 		<Wrapper>
 			<div className={classes.generator}>
