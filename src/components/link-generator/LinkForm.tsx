@@ -1,14 +1,16 @@
 'use client'
-import { useState, useRef, SyntheticEvent } from 'react'
-import classes from './LinkForm.module.scss'
-import { LinkButton } from '../UI/link-button/LinkButton'
+import { useState, useRef } from 'react'
+import { LinkButton } from '../UI/buttons/LinkButton'
 import { InputValue } from '@/models/interfaces'
-export const LinkForm = ({  newItem }: {  newItem: (inputValue:string) => void }) => {
+import classes from './LinkForm.module.scss'
+export const LinkForm = ({ newItem }: InputValue) => {
 	const expression =
 		/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
 	const regex = new RegExp(expression)
+
 	const [isEmpty, setIsEmpty] = useState(false)
 	const [isInvalid, setIsInvalid] = useState(false)
+
 	const input = useRef<HTMLInputElement>(null)
 
 	const clearInput = () => {
@@ -17,7 +19,7 @@ export const LinkForm = ({  newItem }: {  newItem: (inputValue:string) => void }
 	const handleFocus = () => {
 		input.current?.blur()
 	}
-	const checkInputValidation = (e: SyntheticEvent) => {
+	const checkInputValidation = (e: React.FormEvent) => {
 		e.preventDefault()
 		const inputValue = input.current?.value
 		if (inputValue?.trim() === '') {

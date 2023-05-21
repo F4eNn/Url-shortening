@@ -16,6 +16,9 @@
 	--remove-button: #f36262;
 	--remove-button-hover: #ff9797;
 	--copy-btn-bgc: #2bd0d0;
+	--scrollbar-thumb: #2bd0d0;
+	--copied: #3a3053;
+	
 }
 
 *,
@@ -46,4 +49,12 @@ body {
 	background-color: var(--body-bgc);
 	display: grid;
 	min-height: 100svh;
+}
+#button{
+    background-color: var(--buttons-bgc);
+    color: var(--white);
+}
+.copiedMsg{
+    background-color: var(--copied);
+    color: var(--white);
 }

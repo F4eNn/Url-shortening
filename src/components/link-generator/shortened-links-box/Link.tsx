@@ -1,10 +1,11 @@
+import { CopyButton } from '@/components/UI/buttons/CopyButton'
 import classes from './Link.module.scss'
-import { LinkButton } from '@/components/UI/link-button/LinkButton'
-export const Link = ({original, shorthened, id, onRemove, onCopy}: {original: string; shorthened: string; id: string, onRemove: () => void, onCopy: (e: React.MouseEvent) => void}) => {
-
-
+import { CardItem } from '@/models/interfaces'
+export const Link = ({ original, shorthened, id, onRemove, onCopy }: CardItem) => {
 	return (
-		<li id={id} className={classes.container}>
+		<li
+			id={id}
+			className={classes.container}>
 			<div className={classes['old-link-box']}>
 				<p className={classes.old}>{original}</p>
 			</div>
@@ -14,7 +15,7 @@ export const Link = ({original, shorthened, id, onRemove, onCopy}: {original: st
 					<p className={classes.shortened}>{shorthened}</p>
 				</div>
 				<div className={classes['copy-button-box']}>
-					<button onClick={onCopy}>Copy</button>
+					<CopyButton onCopy={onCopy} />
 				</div>
 				<div className={classes['remove-button-box']}>
 					<button onClick={onRemove}>Remove</button>

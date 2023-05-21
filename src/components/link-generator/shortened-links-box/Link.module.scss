@@ -1,5 +1,4 @@
 .container {
-	margin-top: 2.5rem;
 	background-color: var(--link-item-bgc);
 	padding-block: 1.5rem;
 	border-radius: 10px;
@@ -10,21 +9,20 @@
 	}
 	.old-link-box,
 	.new-link-box {
-		margin-inline: auto;
-		width: 90%;
+		text-align: left;
 		margin-bottom: 0.5rem;
+		margin-left: 6%;
 	}
 	.old-link-box {
+		width: 150px;
 		.old {
-			width:calc(50%);
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
-			// text-overflow: hidden;
-
 		}
 	}
 	.new-link-box {
+		width: 100%;
 		.shortened {
 			margin-top: 1rem;
 			color: var(--new-link);
@@ -41,8 +39,9 @@
 	}
 	.remove-button-box,
 	.copy-button-box {
-		width: 100%;
-		margin: auto;
+		width: 90%;
+		margin: 1rem auto;
+
 		button {
 			width: 100%;
 			padding: 1.1rem;
@@ -59,13 +58,32 @@
 			background-color: var(--remove-button-hover);
 		}
 	}
-	.copy-button-box {
-		button {
+	.copy-button-box{
+		button{
+			background-color: var(--buttons-bgc);
 			color: var(--white);
-			background-color: var(--copy-btn-bgc);
 		}
-		button:hover {
+		button:hover{
 			background-color: var(--buttons-bgc-hover);
+		}
+	}
+	.copy-button-box{
+		.copied-bgc{
+			background-color: var(--copied);
+		}
+		.copied-bgc:hover{
+			background-color: var(--copied);
+
+		}
+	}
+}
+.container:not(:first-child) {
+	margin-top: 1rem;
+}
+@media (min-width: 500px) {
+	.container {
+		.old-link-box {
+			width: 300px;
 		}
 	}
 }
@@ -75,36 +93,50 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 10%;
 		.button-box {
 			margin: 0;
 		}
 
 		.old-link-box {
+			margin-left: 0.5rem;
 			display: flex;
-			width: 50%;
-			
 		}
 		.separate-line {
 			display: none;
 		}
+
 		.desktop-flex {
-			gap: 5%;
-			width: 40%;
+			width: 50%;
 			display: flex;
 			align-items: center;
+			gap: 5%;
+
 			.new-link-box {
-				width: 50%;
+				width: 180px;
+				margin-left: 0;
+				margin-bottom: 0;
 				.shortened {
 					margin-top: 0;
 				}
 			}
 			.remove-button-box {
 				width: 25%;
+				margin: 0;
 			}
 			.copy-button-box {
 				width: 25%;
+				margin: 0;
 			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.container {
+		.old-link-box {
+			width: 475px;
+		}
+		.desktop-flex {
+			width: 40%;
 		}
 	}
 }

@@ -1,15 +1,17 @@
 'use client'
 import { useState, useEffect } from 'react'
-import classes from './LinkGenerator.module.scss'
 import { Wrapper } from '../UI/wrapper/Wrapper'
 import { LinkForm } from './LinkForm'
 import { LinksContainer } from './shortened-links-box/LinksContainer'
-import { LinkItems } from '@/models/interfaces'
 import { Link } from './shortened-links-box/Link'
+import { LinkItems } from '@/models/interfaces'
+import styles from './shortened-links-box/Link.module.scss'
+import classes from './LinkGenerator.module.scss'
+
 const URL = 'https://api.shrtco.de/v2/shorten?url='
 
 export const LinkGenerator = () => {
-	const [newData, setNewData] = useState<any>(() => {
+	const [newData, setNewData] = useState(() => {
 		const savedState = localStorage.getItem('MY_ITEMS')
 		if (savedState) {
 			const parseData = JSON.parse(savedState)
@@ -17,6 +19,7 @@ export const LinkGenerator = () => {
 		}
 		return []
 	})
+
 	useEffect(() => {
 		localStorage.setItem('MY_ITEMS', JSON.stringify(newData))
 	}, [newData])
@@ -38,25 +41,34 @@ export const LinkGenerator = () => {
 			const newItem = newData.slice()
 			newItem.push(relevantData)
 			setNewData(newItem)
-			// console.log(newItem)
 		} catch (error) {
 			console.error(error)
 		}
 	}
+
 	const copyLink = (e: React.MouseEvent) => {
 		const target = e.target as HTMLElement
 		const copyLink = target.closest('div')?.previousSibling?.textContent
-		if (copyLink) return navigator.clipboard.writeText(copyLink)
+		if (copyLink) {
+			navigator.clipboard.writeText(copyLink)
+			target.classList.add(`${styles['copied-bgc']}`)
+			target.textContent = 'Copied!'
+			console.log(target)
+			setTimeout(() => {
+				target.classList.remove(`${styles['copied-bgc']}`)
+				target.textContent = 'Copy'
+			}, 1000)
+		}
 	}
 
 	const removeCard = (e?: React.MouseEvent) => {
 		if (!e) return
 		const target = e.target as HTMLElement
 		const elementId = target.closest('li')?.id
-		const removeRelevantCard = newData.filter((item: any) => item.id !== elementId)
+		const removeRelevantCard = newData.filter((item: LinkItems) => item.id !== elementId)
 		setNewData(removeRelevantCard)
 	}
-	const card = newData.map((item: any, index: number) => (
+	const card = newData.map((item: LinkItems, index: number) => (
 		<Link
 			onCopy={copyLink}
 			onRemove={removeCard}
@@ -66,6 +78,7 @@ export const LinkGenerator = () => {
 			shorthened={item.shortLink}
 		/>
 	))
+		console.log(card)
 	return (
 		<Wrapper>
 			<div className={classes.generator}>

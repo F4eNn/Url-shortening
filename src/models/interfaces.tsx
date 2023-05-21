@@ -1,4 +1,4 @@
-import { CSSProperties, SyntheticEvent } from 'react'
+
 
 export interface ButtonProps {
 	text: string
@@ -9,6 +9,13 @@ export interface LinkItems {
 	shortLink:string
 	original: string
 }
+export interface CardItem {
+	original: string
+	shorthened: string
+	id: string
+	onRemove: () => void
+	onCopy: (e: React.MouseEvent) => void
+}
 export interface InputValue {
-	getInputValueHelper: (inputValue: string) => void
+	newItem: (inputValue: string) => void
 }
