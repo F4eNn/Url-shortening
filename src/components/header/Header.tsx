@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Wrapper } from '../UI/wrapper/Wrapper'
 import { Nav } from './nav/Nav'
+import { GetStarted } from '../UI/buttons/GetStarted'
 import Image from 'next/image'
 import classes from './Header.module.scss'
 export const Header = () => {
@@ -12,7 +13,7 @@ export const Header = () => {
 					<div className={classes.description}>
 						<h1>More than just shorter links</h1>
 						<p>Build your brand's recognition and get detailed insights on how your links are performing</p>
-						<button>Get Started</button>
+						<GetStarted />
 					</div>
 					<div className={classes['img-box']}>
 						<Image

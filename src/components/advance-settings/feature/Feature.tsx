@@ -1,17 +1,24 @@
-import classes from './Feature.module.scss'
 import Image from 'next/image'
+import classes from './Feature.module.scss'
+import { FeaturesItems } from '@/models/interfaces'
 
-export const Feature = ({ image, title, description }: { image: string; title: string; description: string }) => {
+export const Feature = ({ image, title, description, margin }: FeaturesItems) => {
 	return (
-			<div className={classes.box}>
-				<div>{title}</div>
+		<div
+			className={classes.container}
+			style={{ marginTop: `${margin}` }}>
+			<div className={classes['image-box']}>
 				<Image
 					src={image}
 					alt=''
-					width={50}
-					height={50}
+					width={35}
+					height={35}
 				/>
-				<div>{description}</div>
 			</div>
+			<div className={classes['features-description']}>
+				<h3>{title}</h3>
+				<p>{description}</p>
+			</div>
+		</div>
 	)
 }

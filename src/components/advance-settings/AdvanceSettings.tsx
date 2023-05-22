@@ -22,29 +22,34 @@ export const AdvanceSettings = () => {
 			image: './images/icon-fully-customizable.svg',
 		},
 	]
-
 	return (
 		<Wrapper>
 			<div className={classes['statistics-container']}>
 				<div className={classes.description}>
-					<h1>Advance statistics</h1>
+					<h2>Advance statistics</h2>
 					<p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
 				</div>
 				<div className={classes.features}>
+					<div className={classes['blue-line-container']}>
+						<div className={classes.line}></div>
+					</div>
 					<Feature
 						description={features[0].description}
 						image={features[0].image}
 						title={features[0].title}
+						margin='2rem'
 					/>
 					<Feature
 						description={features[1].description}
 						image={features[1].image}
 						title={features[1].title}
+						margin='5rem'
 					/>
 					<Feature
 						description={features[2].description}
 						image={features[2].image}
 						title={features[2].title}
+						margin='8rem'
 					/>
 				</div>
 			</div>

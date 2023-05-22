@@ -29,7 +29,7 @@ export const LinkGenerator = () => {
 			const response = await fetch(URL + inputValue)
 
 			if (!response.ok) {
-				throw Error('Response problems')
+				throw Error('Response problems, try different link.')
 			}
 
 			const data = await response.json()
@@ -42,7 +42,7 @@ export const LinkGenerator = () => {
 			newItem.push(relevantData)
 			setNewData(newItem)
 		} catch (error) {
-			console.error(error)
+			alert(error)
 		}
 	}
 
@@ -53,7 +53,6 @@ export const LinkGenerator = () => {
 			navigator.clipboard.writeText(copyLink)
 			target.classList.add(`${styles['copied-bgc']}`)
 			target.textContent = 'Copied!'
-			console.log(target)
 			setTimeout(() => {
 				target.classList.remove(`${styles['copied-bgc']}`)
 				target.textContent = 'Copy'

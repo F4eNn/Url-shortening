@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Wrapper } from '../../UI/wrapper/Wrapper'
 import classes from './Nav.module.scss'
 import Image from 'next/image'
+import { Logo } from '@/components/logo/Logo'
 export const Nav = () => {
 	const [isActive, setIsActive] = useState(false)
 
@@ -28,15 +29,11 @@ export const Nav = () => {
 		<div className={classes['hero-bg']}>
 			<Wrapper>
 				<div className={classes.container}>
-					<Image
-						src='/images/logo.svg'
-						alt=''
-						width={121}
-						height={33}
-					/>
+					<Logo color='#34313D' />
 
 					<div ref={menuRef}>
 						<button
+							title='page navigation'
 							onClick={showNavHandle}
 							className={`${classes['burger-btn']} ${addChangeClass}`}>
 							<div className={classes.bar1}></div>

@@ -1,5 +1,5 @@
 .hero-bg {
-	padding: 4rem .5rem 3rem;
+	padding: 4rem 0.5rem 3rem;
 	.container {
 		display: flex;
 		align-items: center;
@@ -28,9 +28,7 @@
 		.desktop-nav {
 			display: none;
 		}
-		img {
-			align-self: flex-end;
-		}
+		
 		.mobile-nav {
 			position: absolute;
 			left: 0;
@@ -78,10 +76,10 @@
 	}
 	@media (min-width: 768px) {
 		.container {
+			padding: 1rem 0;
 			.mobile-nav {
 				display: none;
 			}
-			padding: 1rem 0;
 
 			.burger-btn {
 				display: none;
@@ -89,7 +87,7 @@
 			.desktop-nav {
 				display: flex;
 				align-items: center;
-				width: 100%;
+				width: 83%;
 				justify-content: space-between;
 				font-size: 1.6rem;
 				color: var(--desktop-nav-items);
@@ -100,6 +98,7 @@
 					button {
 						color: var(--desktop-nav-items);
 						font-size: inherit;
+						transition: color 0.3s;
 					}
 					button:hover {
 						color: var(--desktop-nav-items-hover);

@@ -1,4 +1,5 @@
 :root {
+	--primary: #2bd0d0;
 	--body-bgc: #eff1f7;
 	--white: #ffff;
 	--gray: #9e9aa8;
@@ -18,6 +19,10 @@
 	--copy-btn-bgc: #2bd0d0;
 	--scrollbar-thumb: #2bd0d0;
 	--copied: #3a3053;
+	--features-line: #2bd0d1;
+	--features-font-color: #9e9aa8;
+	--footer-bgc: #232027;
+	--footer-items: #bfbfbf;
 	
 }
 
@@ -41,7 +46,7 @@ button {
 	border-radius: 30px;
 	border: none;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color .3s;
 }
 
 

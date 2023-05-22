@@ -1,6 +1,6 @@
 .header-bgc {
 	background-color: #fff;
-	padding-block-end: 5rem
+	padding-block-end: 5rem;
 }
 .get-started-container {
 	gap: 20px;
@@ -26,13 +26,7 @@
 		button {
 			margin-top: 3rem;
 			font-size: 2rem;
-			letter-spacing: 1px;
-			color: var(--white);
-			background-color: var(--buttons-bgc);
 			padding: 1.6rem 4rem;
-		}
-		button:hover {
-			background-color: var(--buttons-bgc-hover);
 		}
 	}
 	.img-box {

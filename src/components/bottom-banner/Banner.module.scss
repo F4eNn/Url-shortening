@@ -1,0 +1,25 @@
+.hero-bg {
+	background-image: url(../../../public/images/bg-boost-mobile.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: var(--bgc-primary);
+	margin-top: 5rem;
+	padding: 4rem 0;
+	.content {
+		text-align: center;
+		h2 {
+			font-size: clamp(1.7rem, 2.5vw + 1rem, 3rem);
+			color: var(--white);
+		}
+		button {
+			margin-top: 1rem;
+			font-size: clamp(1.4rem, 2.5vw, 2rem);
+			padding: 1rem 2rem;
+		}
+	}
+}
+@media (min-width: 375px) {
+	.hero-bg {
+		background-image: url(../../../public/images/bg-boost-desktop.svg);
+	}
+}

@@ -1,20 +1,25 @@
-
-
-export interface ButtonProps {
+export interface FeaturesItems {
+	image: string
+	title: string
+	description: string
+	margin: string
+}
+export interface CopyFn {
+	onCopy?: (e: React.MouseEvent) => void
+}
+export interface ButtonProps extends CopyFn {
 	text: string
-	onCopy?: (e: React.MouseEvent) => void 
 }
 export interface LinkItems {
 	id: string
-	shortLink:string
+	shortLink: string
 	original: string
 }
-export interface CardItem {
+export interface CardItem extends CopyFn {
 	original: string
 	shorthened: string
 	id: string
 	onRemove: () => void
-	onCopy: (e: React.MouseEvent) => void
 }
 export interface InputValue {
 	newItem: (inputValue: string) => void
