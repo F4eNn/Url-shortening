@@ -2,11 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Install project
 
-clone this repository:
+ - clone this repository:
 `https://github.com/F4eNn/Url-shortening.git`
-install dependencies:
+ - install dependencies:
 `npm install`
-now you can run the app in the development mode:
+ - now you can run the app in the development mode:
 `npm run dev`
 
 ## The challenge
