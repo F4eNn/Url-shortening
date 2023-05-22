@@ -12,10 +12,12 @@ const URL = 'https://api.shrtco.de/v2/shorten?url='
 
 export const LinkGenerator = () => {
 	const [newData, setNewData] = useState(() => {
-		const savedState = localStorage.getItem('MY_ITEMS')
-		if (savedState) {
-			const parseData = JSON.parse(savedState)
-			return parseData
+		if (typeof window !== 'undefined') {
+			const savedState = localStorage.getItem('MY_ITEMS')
+			if (savedState) {
+				const parseData = JSON.parse(savedState)
+				return parseData
+			}
 		}
 		return []
 	})
